@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 15 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 15 요약</h1>
+
+  <h2>1. 그래픽 요소 변형 (Transformations)</h2>
+  <ul>
+    <li><code>translate(x, y)</code>: 좌표 이동</li>
+    <li><code>rotate(angle)</code>: 회전 (라디안 단위)</li>
+    <li><code>scale(sx, sy)</code>: 크기 변경</li>
+    <li><code>transform(a, b, c, d, e, f)</code>: 복합 변형 매트릭스 적용</li>
+    <li><code>setTransform(a, b, c, d, e, f)</code>: 변형 매트릭스 초기화 후 설정</li>
+  </ul>
+  <pre><code>
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'blue';
+
+// 원래 사각형
+ctx.fillRect(20, 20, 100, 50);
+
+// 이동 후 사각형
+ctx.translate(150, 0);
+ctx.fillStyle = 'red';
+ctx.fillRect(20, 20, 100, 50);
+
+// 변형 초기화
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+  </code></pre>
+
+  <h2>2. 그래픽 요소 합성 (Compositing)</h2>
+  <p>캔버스에서 겹치는 영역을 어떻게 처리할지 지정</p>
+  <ul>
+    <li><code>globalAlpha</code>: 투명도 설정 (0.0 ~ 1.0)</li>
+    <li><code>globalCompositeOperation</code>: 합성 방식 지정</li>
+  </ul>
+  <pre><code>
+ctx.globalAlpha = 0.5;
+ctx.fillStyle = 'green';
+ctx.fillRect(50, 50, 100, 100);
+
+ctx.globalCompositeOperation = 'multiply';
+ctx.fillStyle = 'yellow';
+ctx.fillRect(100, 100, 100, 100);
+
+// 합성 모드 초기화
+ctx.globalCompositeOperation = 'source-over';
+ctx.globalAlpha = 1.0;
+  </code></pre>
+
+  <a href="index.html">← 홈으로 돌아가기</a>
+</body>
+</html>
