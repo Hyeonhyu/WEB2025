@@ -1,11 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 6 Summary</title>
+  <title>Chapter 6 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Chapter 6 요약</h1>
+
+  <h2>1. 이벤트 처리</h2>
+  <p>사용자의 동작(클릭, 입력 등)에 반응하는 기능.</p>
+  <ul>
+    <li><code>onclick</code> 등의 HTML 속성 사용</li>
+    <li><code>addEventListener()</code> 메서드 권장</li>
+  </ul>
+  <pre><code>
+// 방법 1: HTML 속성
+&lt;button onclick="sayHi()"&gt;클릭&lt;/button&gt;
+
+// 방법 2: JS에서 addEventListener
+document.querySelector("button").addEventListener("click", sayHi);
+
+function sayHi() {
+  alert("안녕하세요!");
+}
+  </code></pre>
+
+  <h2>2. 이벤트 객체</h2>
+  <p>이벤트 발생 시 자동으로 전달되는 정보 객체 (<code>event</code> 또는 <code>e</code>)</p>
+  <ul>
+    <li><code>event.target</code>: 이벤트가 발생한 실제 요소</li>
+    <li><code>event.type</code>: 이벤트 종류 (예: click)</li>
+    <li><code>event.preventDefault()</code>: 기본 동작 취소</li>
+  </ul>
+  <pre><code>
+const link = document.querySelector("a");
+link.addEventListener("click", function(e) {
+  e.preventDefault(); // 링크 이동 막기
+  console.log("클릭한 요소:", e.target);
+  console.log("이벤트 타입:", e.type);
+});
+  </code></pre>
+
+  <h2>3. 이벤트 전파 (Event Propagation)</h2>
+  <p>이벤트가 발생했을 때, DOM 트리를 따라 전달되는 방식.</p>
+
+  <h3>① 버블링 (기본 동작)</h3>
+  <p>이벤트가 안쪽 요소에서 바깥쪽으로 전달됨.</p>
+
+  <h3>② 캡처링</h3>
+  <p>이벤트가 바깥쪽 요소에서 안쪽으로 전달됨 (옵션 필요).</p>
+
+  <pre><code>
+document.getElementById("outer").addEventListener("click", function() {
+  alert("바깥쪽 div");
+});
+
+document.getElementById("inner").addEventListener("click", function(e) {
+  alert("안쪽 div");
+  e.stopPropagation(); // 이벤트 전파 중지
+});
+  </code></pre>
+
+  <p><strong>e.stopPropagation()</strong>으로 전파를 막을 수 있음.</p>
+
+  <h3>예시 구조</h3>
+  <pre><code>
+&lt;div id="outer"&gt;
+  &lt;div id="inner"&gt;
+    클릭하세요
+  &lt;/div&gt;
+&lt;/div&gt;
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
