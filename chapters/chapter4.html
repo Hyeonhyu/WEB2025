@@ -1,11 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 4 Summary</title>
+  <title>Chapter 4 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Chapter 4 요약</h1>
+
+  <h2>1. 함수(Function)</h2>
+  <p>자주 사용하는 코드 블록을 재사용하기 위한 구조입니다.</p>
+  <pre><code>
+function sayHello(name) {
+  console.log("안녕하세요, " + name + "님!");
+}
+
+sayHello("현휴");
+  </code></pre>
+
+  <h2>2. 스코프(Scope)</h2>
+  <p>변수가 유효한 범위를 의미하며, <strong>전역 변수</strong>와 <strong>지역 변수</strong>로 구분됩니다.</p>
+  <pre><code>
+let x = 10; // 전역 변수
+
+function testScope() {
+  let y = 20; // 지역 변수
+  console.log(x); // 가능
+  console.log(y); // 가능
+}
+
+console.log(x); // 가능
+console.log(y); // 오류! y는 함수 안에서만 사용 가능
+  </code></pre>
+
+  <h2>3. 함수 표현식 (익명 함수)</h2>
+  <p>함수를 변수에 저장해서 사용하는 방식입니다. 보통 이름 없이 익명으로 작성합니다.</p>
+  <pre><code>
+const greet = function(name) {
+  console.log("Hi, " + name);
+};
+
+greet("모카룡");
+  </code></pre>
+
+  <h2>4. 화살표 함수</h2>
+  <p>간단하게 함수를 작성할 수 있는 문법입니다.</p>
+  <pre><code>
+const add = (a, b) => a + b;
+
+console.log(add(3, 5)); // 8
+  </code></pre>
+
+  <h2>5. 전개 구문(Spread Syntax)</h2>
+  <p><code>...</code>을 이용해 배열이나 객체의 값을 펼치거나 복사할 수 있습니다.</p>
+  <pre><code>
+// 배열 복사
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
+console.log(arr2); // [1, 2, 3]
+
+// 배열 결합
+const combined = [...arr1, 4, 5];
+console.log(combined); // [1, 2, 3, 4, 5]
+  </code></pre>
+
+  <h2>6. 타이머 함수</h2>
+  <p>일정 시간 후에 코드를 실행하거나 반복 실행합니다.</p>
+
+  <h3>setTimeout()</h3>
+  <pre><code>
+setTimeout(() => {
+  console.log("3초 후에 실행됩니다.");
+}, 3000);
+  </code></pre>
+
+  <h3>setInterval()</h3>
+  <pre><code>
+let count = 0;
+const intervalId = setInterval(() => {
+  console.log("1초마다 실행: " + ++count);
+  if (count === 5) clearInterval(intervalId);
+}, 1000);
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
