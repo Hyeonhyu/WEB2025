@@ -1,12 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 9 Summary</title>
+  <title>Chapter 9 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Chapter 9 Summary</h1>
-  <p>이벤트와 스크립트 연결 방법을 배웠어요.</p>
+  <h1>Chapter 9 요약</h1>
+
+  <h2>1. 생성자 함수로 객체 만들기</h2>
+  <p>생성자 함수는 객체를 만드는 함수이며, <code>new</code> 키워드와 함께 사용</p>
+  <pre><code>
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.sayHello = function() {
+    console.log("안녕! 나는 " + this.name);
+  };
+}
+
+const p1 = new Person("현휴", 24);
+p1.sayHello(); // 안녕! 나는 현휴
+  </code></pre>
+
+  <h2>2. 클래스 문법</h2>
+  <p>ES6 이후 도입된 클래스 문법은 객체지향 방식 구현을 더 직관적으로 만들어줌</p>
+  <pre><code>
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name}이(가) 소리를 낸다.`);
+  }
+}
+
+const dog = new Animal("강아지");
+dog.speak(); // 강아지이(가) 소리를 낸다.
+  </code></pre>
+
+  <h2>3. 객체의 키와 값에 접근하기</h2>
+  <ul>
+    <li><strong>점 표기법</strong>: <code>obj.key</code></li>
+    <li><strong>대괄호 표기법</strong>: <code>obj["key"]</code> — 변수 키 접근 가능</li>
+  </ul>
+  <pre><code>
+const user = { name: "현휴", age: 24 };
+console.log(user.name);     // 점 표기법
+console.log(user["age"]);   // 대괄호 표기법
+  </code></pre>
+
+  <h2>4. 프로토타입(prototype)과 상속</h2>
+  <p>자바스크립트는 <strong>프로토타입 기반 상속</strong>을 사용</p>
+  <pre><code>
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.sayHello = function() {
+  console.log("Hi, I'm " + this.name);
+};
+
+const me = new Person("현휴");
+me.sayHello(); // Hi, I'm 현휴
+  </code></pre>
+
+  <h2>5. 클래스에서의 상속 (extends)</h2>
+  <pre><code>
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    console.log(`${this.name}이(가) 소리를 냅니다.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name}이(가) 멍멍 짖습니다.`);
+  }
+}
+
+const myDog = new Dog("시로");
+myDog.speak(); // 시로가(이) 멍멍 짖습니다.
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
