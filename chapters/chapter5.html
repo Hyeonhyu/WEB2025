@@ -1,11 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 5 Summary</title>
+  <title>Chapter 5 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Chapter 5 요약</h1>
+
+  <h2>1. DOM (Document Object Model)</h2>
+  <p>HTML 문서를 자바스크립트에서 제어할 수 있도록 객체 모델로 표현한 것.</p>
+  <p>각 HTML 요소는 노드(node)로 표현되며, 계층적으로 구성됨.</p>
+
+  <h2>2. DOM 트리 구조</h2>
+  <p>HTML 문서는 트리 형태로 구성되어 있으며, 부모-자식 관계로 연결됨.</p>
+  <ul>
+    <li>문서 루트: <code>document</code></li>
+    <li>노드 타입: <code>요소 노드</code>, <code>텍스트 노드</code>, <code>속성 노드</code> 등</li>
+  </ul>
+
+  <h2>3. 웹 요소 접근 방법</h2>
+  <ul>
+    <li><code>document.getElementById("id")</code></li>
+    <li><code>document.getElementsByClassName("class")</code></li>
+    <li><code>document.getElementsByTagName("tag")</code></li>
+    <li><code>document.querySelector("선택자")</code></li>
+    <li><code>document.querySelectorAll("선택자")</code></li>
+  </ul>
+  <pre><code>
+const title = document.getElementById("mainTitle");
+title.textContent = "제목 바뀜!";
+  </code></pre>
+
+  <h2>4. 자바스크립트로 스타일 수정하기</h2>
+  <p><code>style</code> 속성을 통해 CSS 스타일을 변경할 수 있음.</p>
+  <pre><code>
+const box = document.querySelector(".box");
+box.style.backgroundColor = "lightblue";
+box.style.fontSize = "20px";
+  </code></pre>
+
+  <h2>5. DOM에서 폼 다루기</h2>
+  <ul>
+    <li>폼 요소 접근: <code>document.forms["formName"]</code> 또는 <code>document.querySelector("form")</code></li>
+    <li>입력값 가져오기: <code>input.value</code></li>
+    <li>체크 여부: <code>checkbox.checked</code></li>
+  </ul>
+  <pre><code>
+const form = document.querySelector("#loginForm");
+const userId = document.querySelector("#userId");
+const remember = document.querySelector("#remember");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // 제출 막기
+  alert("ID: " + userId.value + ", 저장: " + remember.checked);
+});
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
