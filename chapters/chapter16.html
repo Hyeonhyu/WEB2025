@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 16 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 16 요약</h1>
+
+  <h2>1. 객체를 사용해 도형 그리기</h2>
+  <p>도형을 객체로 만들고, 캔버스에 그리는 방식</p>
+  <pre><code>
+class Rectangle {
+  constructor(x, y, width, height, color) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+}
+
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+const rect = new Rectangle(20, 20, 100, 50, 'blue');
+rect.draw(ctx);
+  </code></pre>
+
+  <h2>2. 애니메이션 효과 추가하기</h2>
+  <p>requestAnimationFrame을 이용해 반복 그리기</p>
+  <pre><code>
+let x = 0;
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  rect.x = x;
+  rect.draw(ctx);
+
+  x += 2;
+  if (x > canvas.width) x = -rect.width;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+  </code></pre>
+
+  <a href="index.html">← 홈으로 돌아가기</a>
+</body>
+</html>
