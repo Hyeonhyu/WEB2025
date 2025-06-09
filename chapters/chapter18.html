@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 18 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 18 요약</h1>
+
+  <h2>1. 공개 API란?</h2>
+  <p>누구나 사용할 수 있도록 공개된 API로, 주로 웹 서비스나 데이터를 외부에 제공하기 위해 만듭니다.</p>
+
+  <h2>2. 공개 API 활용 예</h2>
+  <ul>
+    <li>날씨 정보 API (예: OpenWeatherMap)</li>
+    <li>지도 API (예: 카카오, 구글 지도 API)</li>
+    <li>뉴스, 영화, 교통 정보 API</li>
+  </ul>
+
+  <h2>3. 공개 API 사용 방법</h2>
+  <ol>
+    <li>API 제공처에서 API 키 발급 받기</li>
+    <li>문서(Documentation)를 참고하여 요청 형식 확인</li>
+    <li>fetch, axios 등으로 HTTP 요청 보내기</li>
+    <li>응답 데이터를 파싱하여 화면에 표시</li>
+  </ol>
+
+  <h3>간단한 fetch 예제</h3>
+  <pre><code>
+fetch('https://api.example.com/data?apikey=YOUR_API_KEY')
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    console.log(data);
+    // 데이터를 화면에 표시하는 코드 작성
+  })
+  .catch(error =&gt; console.error('Error:', error));
+  </code></pre>
+
+  <a href="index.html">← 홈으로 돌아가기</a>
+</body>
+</html>
