@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Chapter 11 Summary</title>
+  <meta charset="UTF-8" />
+  <title>Chapter 11 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Chapter 11 Summary</h1>
-  <p>이벤트와 스크립트 연결 방법을 배웠어요.</p>
+  <h1>Chapter 11 요약</h1>
+
+  <h2>1. 구조 분해 할당 (Destructuring Assignment)</h2>
+  <p>배열이나 객체의 값을 편리하게 변수에 할당하는 문법</p>
+  <pre><code>
+// 배열 구조분해
+const arr = [1, 2, 3];
+const [a, b, c] = arr;
+console.log(a, b, c); // 1 2 3
+
+// 객체 구조분해
+const obj = {name: "현휴", age: 25};
+const {name, age} = obj;
+console.log(name, age); // 현휴 25
+  </code></pre>
+
+  <h2>2. 배열 변형 메서드</h2>
+  <ul>
+    <li><code>push()</code>, <code>pop()</code>: 끝에 요소 추가/제거</li>
+    <li><code>shift()</code>, <code>unshift()</code>: 앞에 요소 제거/추가</li>
+    <li><code>splice()</code>: 배열 중간에 요소 삽입, 삭제</li>
+    <li><code>slice()</code>: 배열의 일부를 복사해서 반환</li>
+    <li><code>concat()</code>: 배열 합치기</li>
+    <li><code>filter()</code>, <code>map()</code>, <code>reduce()</code>: 함수형 배열 처리</li>
+  </ul>
+
+  <h2>3. Map과 Set</h2>
+  <p><strong>Map</strong>: 키와 값을 모두 객체로 저장하는 컬렉션</p>
+  <pre><code>
+const map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+console.log(map.get('a')); // 1
+  </code></pre>
+  <p><strong>Set</strong>: 중복 없는 값들의 집합</p>
+  <pre><code>
+const set = new Set([1, 2, 2, 3]);
+console.log(set); // Set {1, 2, 3}
+  </code></pre>
+
+  <h2>4. 이터레이터(Iterator)와 제너레이터(Generator)</h2>
+  <p><strong>이터레이터</strong>는 컬렉션을 순차적으로 접근할 수 있게 해주는 객체</p>
+  <p><strong>제너레이터</strong>는 이터레이터를 쉽게 만드는 함수</p>
+  <pre><code>
+// 제너레이터 함수 예제
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const iterator = gen();
+console.log(iterator.next()); // {value: 1, done: false}
+console.log(iterator.next()); // {value: 2, done: false}
+console.log(iterator.next()); // {value: 3, done: false}
+console.log(iterator.next()); // {value: undefined, done: true}
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
