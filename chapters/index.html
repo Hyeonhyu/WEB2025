@@ -5,47 +5,52 @@
   <title>Chapters List</title>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Pretendard', sans-serif;
-      background-color: #f0f4f8;
-      color: #333;
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 2.4rem;
-      color: #4e8cff;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #4e8cff;
-      padding-bottom: 10px;
-    }
-    ul {
-      list-style:none;
-      padding-left:0;
-    }
-    li {
-      background: white;
-      margin-bottom: 10px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    li:hover {
-      transform: translateX(10px);
-      box-shadow: 0 6px 15px rgba(78,140,255,0.4);
-    }
-    a {
-      color: #4e8cff;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      display: block;
-    }
-    a:hover {
-      color: #ff9e3b;
-    }
+body {
+  font-family: 'Pretendard', sans-serif;
+  background-color: #f7f9fc; /* 아주 연한 하늘색 느낌으로 */
+  color: #222; /* 좀 더 진한 다크 그레이 */
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.6; /* 줄간격 넉넉히 */
+}
+h1 {
+  font-size: 2.8rem;
+  color: #3366ff; /* 좀 더 선명한 파란색 */
+  margin-bottom: 25px;
+  border-bottom: 3px solid #3366ff;
+  padding-bottom: 12px;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+li {
+  background: #ffffffef; /* 약간 투명한 흰색, 살짝 부드러운 느낌 */
+  margin-bottom: 14px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+li:hover {
+  background-color: #e6f0ff; /* 연한 파란 배경으로 부드럽게 변화 */
+  transform: translateX(12px);
+  box-shadow: 0 8px 20px rgba(51, 102, 255, 0.3);
+}
+a {
+  color: #3366ff;
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  letter-spacing: 0.02em;
+}
+a:hover {
+  color: #ff7f3b; /* 호버 시 선명한 주황 */
+}
+
   </style>
 </head>
 <body>
