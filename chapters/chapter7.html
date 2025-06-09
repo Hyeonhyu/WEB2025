@@ -1,11 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 7 Summary</title>
+  <title>Chapter 7 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Chapter 7 Summary</h1>
+  <h1>Chapter 7 요약</h1>
+
+  <h2>1. DOM 트리와 노드 리스트</h2>
+  <p>HTML 문서는 트리 구조로 표현되며, 각 요소는 <strong>노드(Node)</strong>로 구성됨.</p>
+  <ul>
+    <li><strong>요소 노드</strong>: 태그 요소 (ex. <code>&lt;div&gt;</code>)</li>
+    <li><strong>텍스트 노드</strong>: 텍스트 내용</li>
+    <li><strong>속성 노드</strong>: 태그에 포함된 속성 정보</li>
+  </ul>
+
+  <p>여러 개의 요소를 선택할 때 <code>NodeList</code>로 반환됨:</p>
+  <pre><code>
+const items = document.querySelectorAll("li");
+console.log(items.length); // NodeList 길이
+  </code></pre>
+
+  <h2>2. 웹 문서에 새로운 노드 추가하기</h2>
+  <p><strong>createElement()</strong>와 <strong>appendChild()</strong> 또는 <strong>append()</strong> 사용</p>
+
+  <pre><code>
+const ul = document.querySelector("ul");
+const newItem = document.createElement("li");
+newItem.textContent = "새 항목 추가";
+ul.appendChild(newItem);
+  </code></pre>
+
+  <h3>💡 append()과 appendChild() 차이</h3>
+  <ul>
+    <li><code>append()</code>: 텍스트 노드도 추가 가능</li>
+    <li><code>appendChild()</code>: 요소 노드만 추가 가능</li>
+  </ul>
+
+  <h2>3. 노드 삭제하기</h2>
+  <p>노드 제거는 부모 노드를 통해 <code>removeChild()</code> 또는 <code>remove()</code> 사용</p>
+
+  <pre><code>
+// 방법 1: 부모에서 자식 제거
+const ul = document.querySelector("ul");
+const firstItem = ul.querySelector("li");
+ul.removeChild(firstItem);
+
+// 방법 2: 직접 삭제 (최신 브라우저 지원)
+firstItem.remove();
+  </code></pre>
+
+  <h2>예시 구조</h2>
+  <pre><code>
+&lt;ul&gt;
+  &lt;li&gt;항목 1&lt;/li&gt;
+  &lt;li&gt;항목 2&lt;/li&gt;
+&lt;/ul&gt;
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
