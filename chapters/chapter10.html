@@ -1,12 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 10 Summary</title>
+  <title>Chapter 10 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Chapter 10 Summary</h1>
-  <p>이벤트와 스크립트 연결 방법을 배웠어요.</p>
+  <h1>Chapter 10 요약</h1>
+
+  <h2>1. 문자열 접근</h2>
+  <p>문자열은 배열처럼 인덱스로 접근 가능하며, <code>length</code> 속성 사용 가능</p>
+  <pre><code>
+const str = "Hello, World!";
+console.log(str[0]);       // H
+console.log(str.charAt(1)); // e
+console.log(str.length);    // 13
+  </code></pre>
+
+  <h2>2. 주요 문자열 메서드</h2>
+  <ul>
+    <li><code>toUpperCase()</code>, <code>toLowerCase()</code>: 대소문자 변환</li>
+    <li><code>indexOf()</code>, <code>lastIndexOf()</code>: 위치 찾기</li>
+    <li><code>slice(start, end)</code>: 부분 문자열 추출</li>
+    <li><code>substring(start, end)</code>, <code>substr(start, length)</code></li>
+    <li><code>trim()</code>: 공백 제거</li>
+    <li><code>replace(찾을값, 바꿀값)</code></li>
+    <li><code>includes()</code>, <code>startsWith()</code>, <code>endsWith()</code></li>
+  </ul>
+  <pre><code>
+const str = " JavaScript ";
+console.log(str.trim());            // "JavaScript"
+console.log(str.toUpperCase());     // " JAVASCRIPT "
+console.log(str.indexOf("S"));      // 5
+console.log(str.replace("Script", "Rush")); // " JavaRush "
+  </code></pre>
+
+  <h2>3. 정규표현식(Regex)으로 문자열 다루기</h2>
+  <p>정규표현식은 패턴 매칭에 사용됨</p>
+  <ul>
+    <li><code>/pattern/</code> 또는 <code>new RegExp("pattern")</code> 사용</li>
+    <li><code>test()</code>: 패턴 일치 여부</li>
+    <li><code>match()</code>: 패턴과 일치하는 값 찾기</li>
+    <li><code>replace()</code>: 패턴에 맞는 부분 치환</li>
+  </ul>
+  <pre><code>
+const text = "010-1234-5678";
+const regex = /\d{3}-\d{4}-\d{4}/;
+console.log(regex.test(text));  // true
+console.log(text.match(regex)); // ['010-1234-5678']
+console.log(text.replace(regex, "비공개")); // "비공개"
+  </code></pre>
+
+  <h2>4. 문자열과 배열 간 변환</h2>
+  <ul>
+    <li><code>split(구분자)</code>: 문자열 → 배열</li>
+    <li><code>join(구분자)</code>: 배열 → 문자열</li>
+  </ul>
+  <pre><code>
+const csv = "현휴,모카룡,히카리";
+const arr = csv.split(","); // ["현휴", "모카룡", "히카리"]
+console.log(arr.join(" & ")); // "현휴 & 모카룡 & 히카리"
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
