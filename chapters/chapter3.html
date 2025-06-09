@@ -1,11 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 3 Summary</title>
+  <title>Chapter 3 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Chapter 3 요약</h1>
+
+  <h2>1. 연산자</h2>
+  <ul>
+    <li><strong>산술 연산자</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
+    <li><strong>문자열 연결 연산자</strong>: <code>+</code> (예: "Hello" + "World")</li>
+    <li><strong>증감 연산자</strong>: <code>++</code>, <code>--</code></li>
+    <li><strong>대입 연산자</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></li>
+    <li><strong>비교 연산자</strong>: <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+    <li><strong>논리 연산자</strong>: <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
+  </ul>
+
+  <h2>2. 조건문</h2>
+  <h3>if / else if / else</h3>
+  <pre><code>
+let score = 75;
+
+if (score >= 90) {
+  console.log("A");
+} else if (score >= 80) {
+  console.log("B");
+} else if (score >= 70) {
+  console.log("C");
+} else {
+  console.log("F");
+}
+  </code></pre>
+
+  <h3>삼항 연산자</h3>
+  <p>형식: <code>조건 ? 참일 때 값 : 거짓일 때 값</code></p>
+  <pre><code>
+let age = 20;
+let result = (age >= 19) ? "성인" : "미성년자";
+console.log(result);
+  </code></pre>
+
+  <h3>switch 문</h3>
+  <pre><code>
+let day = "화요일";
+
+switch (day) {
+  case "월요일":
+    console.log("Monday");
+    break;
+  case "화요일":
+    console.log("Tuesday");
+    break;
+  default:
+    console.log("기타 요일");
+}
+  </code></pre>
+
+  <h2>3. 반복문</h2>
+  <h3>for 문</h3>
+  <pre><code>
+for (let i = 1; i <= 5; i++) {
+  console.log("i =", i);
+}
+  </code></pre>
+
+  <h3>while 문</h3>
+  <pre><code>
+let i = 1;
+while (i <= 5) {
+  console.log("i =", i);
+  i++;
+}
+  </code></pre>
+
+  <h3>do...while 문</h3>
+  <pre><code>
+let j = 1;
+do {
+  console.log("j =", j);
+  j++;
+} while (j <= 5);
+  </code></pre>
+
+  <h3>break / continue</h3>
+  <pre><code>
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) continue; // 3 건너뜀
+  if (i === 5) break;    // 5에서 종료
+  console.log(i);
+}
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
