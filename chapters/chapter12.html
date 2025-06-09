@@ -1,12 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Chapter 12 Summary</title>
+  <meta charset="UTF-8" />
+  <title>Chapter 12 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Chapter 12 Summary</h1>
-  <p>이벤트와 스크립트 연결 방법을 배웠어요.</p>
+  <h1>Chapter 12 요약</h1>
+
+  <h2>1. HTTP 통신</h2>
+  <ul>
+    <li>HTTP: 클라이언트와 서버 간 데이터 주고받는 프로토콜</li>
+    <li>주요 메서드: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code></li>
+  </ul>
+
+  <h2>2. JSON (JavaScript Object Notation)</h2>
+  <ul>
+    <li>서버-클라이언트 간 데이터 교환에 많이 쓰임</li>
+    <li>객체 형태의 문자열 표현</li>
+    <li><code>JSON.stringify()</code>: 객체 → JSON 문자열</li>
+    <li><code>JSON.parse()</code>: JSON 문자열 → 객체</li>
+  </ul>
+  <pre><code>
+const obj = {name: "현휴", age: 24};
+const jsonStr = JSON.stringify(obj);
+console.log(jsonStr); // '{"name":"현휴","age":24}'
+
+const parsedObj = JSON.parse(jsonStr);
+console.log(parsedObj.name); // 현휴
+  </code></pre>
+
+  <h2>3. 서버에서 자료 가져오기 (fetch API)</h2>
+  <p>비동기 방식으로 HTTP 요청을 보내고 응답을 받는 최신 방식</p>
+  <pre><code>
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('네트워크 오류');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('오류 발생:', error);
+  });
+  </code></pre>
+
+  <h2>4. 예외 처리 (try...catch)</h2>
+  <p>코드 실행 중 발생 가능한 오류를 잡아내고 처리</p>
+  <pre><code>
+try {
+  let result = riskyOperation();
+  console.log(result);
+} catch (error) {
+  console.error('에러 발생:', error.message);
+} finally {
+  console.log('항상 실행되는 코드');
+}
+  </code></pre>
+
   <a href="index.html">← 홈으로 돌아가기</a>
 </body>
 </html>
