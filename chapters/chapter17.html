@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 17 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 17 요약</h1>
+
+  <h2>1. API란?</h2>
+  <p>Application Programming Interface의 약자로, 프로그램 간에 기능이나 데이터를 주고받기 위한 인터페이스입니다.</p>
+
+  <h2>2. 웹스토리지 API</h2>
+  <p>브라우저에 데이터를 저장하는 API로, 크게 두 가지가 있습니다.</p>
+  <ul>
+    <li><strong>localStorage</strong>: 영구 저장, 브라우저를 닫아도 데이터 유지</li>
+    <li><strong>sessionStorage</strong>: 세션 저장, 브라우저 탭을 닫으면 데이터 삭제</li>
+  </ul>
+
+  <h3>localStorage 예제</h3>
+  <pre><code>
+// 데이터 저장
+localStorage.setItem('username', 'hyeonhyu');
+
+// 데이터 읽기
+const name = localStorage.getItem('username');
+console.log(name);  // hyeonhyu
+
+// 데이터 삭제
+localStorage.removeItem('username');
+
+// 전체 삭제
+localStorage.clear();
+  </code></pre>
+
+  <h3>sessionStorage 예제</h3>
+  <pre><code>
+// 데이터 저장
+sessionStorage.setItem('tempData', '12345');
+
+// 데이터 읽기
+const temp = sessionStorage.getItem('tempData');
+console.log(temp);  // 12345
+  </code></pre>
+
+  <a href="index.html">← 홈으로 돌아가기</a>
+</body>
+</html>
