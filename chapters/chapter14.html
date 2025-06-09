@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 14 요약</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 14 요약</h1>
+
+  <h2>1. 캔버스(Canvas) 소개</h2>
+  <p>HTML5에서 그래픽을 그릴 수 있는 요소</p>
+  <pre><code>&lt;canvas id="myCanvas" width="300" height="150"&gt;&lt;/canvas&gt;</code></pre>
+
+  <h2>2. 기본 도형 그리기</h2>
+  <p>2D 컨텍스트를 가져와서 도형을 그림</p>
+  <pre><code>
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// 사각형 그리기
+ctx.fillStyle = 'skyblue';
+ctx.fillRect(20, 20, 150, 100);
+
+// 선 그리기
+ctx.beginPath();
+ctx.moveTo(20, 20);
+ctx.lineTo(170, 120);
+ctx.stroke();
+  </code></pre>
+
+  <h2>3. 텍스트 그리기</h2>
+  <pre><code>
+ctx.font = '20px Arial';
+ctx.fillStyle = 'black';
+ctx.fillText('안녕하세요!', 30, 50);
+  </code></pre>
+
+  <h2>4. 이미지 표시하기</h2>
+  <pre><code>
+const img = new Image();
+img.src = 'path/to/image.png';
+img.onload = function() {
+  ctx.drawImage(img, 50, 70, 100, 100);
+};
+  </code></pre>
+
+  <a href="index.html">← 홈으로 돌아가기</a>
+</body>
+</html>
